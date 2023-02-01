@@ -1,0 +1,15 @@
+Forward-Forward Alogrithm PyTorch
+
+Some Concepts:
+* Local Training: The conventional backprop computes the gradients by successive applications of the chain rule, from the objective function to the parameters. FF, however, computes the gradients locally with a local objective function, so there is no need to backpropagate the errors. 
+
+* Low memory usage: No need to store activations.
+
+* Faster weights update: Once the output of a layer has been computed, the weights can be updated right away, i.e. no need to wait the full forward (and part of the backward) pass to be completed.
+
+He proposed 2 different Forward-Forward Algorithm : Base and recurrent.
+
+* Base FF algorithm have significantly low memory usage in compare to Forward Backward algorithm. But, Base FF has a worse memory usage than backprop for thin models.
+
+In future:
+* The Forward-Forward algorithm could in practice be further optimized as it does not require loading the full network while training. In fact, the Forward-Forward algorithm can be used to train each layer of the network separately, meaning that the memory usage of the algorithm would be related just to the number of parameters of the layer being trained.
